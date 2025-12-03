@@ -1,0 +1,8 @@
+
+path: /home/boukari/5A-TP-DeepLearning/insa-5a-deep-learning/dataset
+train: train/images
+val: val/images
+
+nc: 1
+names:
+  0: Casque audio
