@@ -11,7 +11,9 @@ os.makedirs(train_directory + "/labels", exist_ok=True)
 os.makedirs(val_directory + "/images", exist_ok=True)
 os.makedirs(val_directory + "/labels", exist_ok=True)
 
-for video_number in [1, 2, 3, 4, 5]:
+video_numbers = [int(d.replace("video", "")) for d in os.listdir("dataset/labelled") if d.startswith("video")]
+
+for video_number in video_numbers:
     txt_directory = f"dataset/labelled/video{video_number}/obj_train_data"
     jpg_directory = f"data/frames/img{video_number}"
 
@@ -29,10 +31,10 @@ for video_number in [1, 2, 3, 4, 5]:
 
     # move paired files
     for base in train_basenames:
-        shutil.move(f"{txt_directory}/{base}.txt", f"{train_directory}/labels/{base}_{video_number}.txt")
-        shutil.move(f"{jpg_directory}/{base}.jpg", f"{train_directory}/images/{base}_{video_number}.jpg")
+        shutil.copy(f"{txt_directory}/{base}.txt", f"{train_directory}/labels/{base}_{video_number}.txt")
+        shutil.copy(f"{jpg_directory}/{base}.jpg", f"{train_directory}/images/{base}_{video_number}.jpg")
 
     for base in val_basenames:
-        shutil.move(f"{txt_directory}/{base}.txt", f"{val_directory}/labels/{base}_{video_number}.txt")
-        shutil.move(f"{jpg_directory}/{base}.jpg", f"{val_directory}/images/{base}_{video_number}.jpg")
+        shutil.copy(f"{txt_directory}/{base}.txt", f"{val_directory}/labels/{base}_{video_number}.txt")
+        shutil.copy(f"{jpg_directory}/{base}.jpg", f"{val_directory}/images/{base}_{video_number}.jpg")
 
