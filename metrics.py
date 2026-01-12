@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import os
 import pandas 
 
-MODELS_DIR="/home/boukari/5A-TP-DeepLearning/insa-5a-deep-learning/model"
+MODELS_DIR="C:\\Users\\mateo\\Documents\\INSA\\5A\\DeepLearning\\insa-5a-deep-learning\\model"
 
 models = [
     {
